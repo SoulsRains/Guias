@@ -1,0 +1,304 @@
+/* ==========================================
+   ESTILOS GENERALES Y VARIABLES (DARK SOULS)
+   ========================================== */
+:root {
+  --bg-main: #070606;
+  --bg-card: rgba(18, 15, 14, 0.95);
+  --gold-bonfire: #d4a359;
+  --gold-glow: rgba(212, 163, 89, 0.4);
+  --ember-bright: #e04a1f;
+  --crimson-blood: #8a2416;
+  --text-main: #d1c7bd;
+  --text-muted: #80776d;
+  --border-gothic: rgba(212, 163, 89, 0.3);
+  --font-title: 'Cinzel', serif;
+  --font-body: 'Cormorant Garamond', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(138, 36, 22, 0.12) 0%, transparent 60%),
+    linear-gradient(to bottom, #070606, #0d0b0a);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   HEADER & NAVEGACIÓN
+   ========================================== */
+header {
+  background: rgba(7, 6, 6, 0.95);
+  border-bottom: 2px solid var(--border-gothic);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: #e6ded6;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--gold-bonfire);
+}
+
+.header-icon {
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 0 6px var(--gold-glow));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover .header-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 12px rgba(224, 74, 31, 0.8));
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  padding: 5px 0;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--gold-bonfire);
+  text-shadow: 0 0 8px var(--gold-glow);
+  border-bottom: 1px solid var(--gold-bonfire);
+}
+
+/* Botones permanentes de YouTube en el Header */
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-ds {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border-gothic);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-yt-secondary {
+  background: rgba(18, 15, 14, 0.8);
+  border-color: var(--text-muted);
+  color: var(--text-main);
+}
+
+.btn-yt-secondary:hover {
+  border-color: var(--gold-bonfire);
+  color: var(--gold-bonfire);
+  background: rgba(212, 163, 89, 0.1);
+}
+
+.btn-yt-main {
+  background: linear-gradient(180deg, #8a2416, #400e07);
+  border-color: var(--ember-bright);
+  color: #fff;
+}
+
+.btn-yt-main:hover {
+  background: var(--ember-bright);
+  box-shadow: 0 0 15px rgba(224, 74, 31, 0.7);
+}
+
+/* ==========================================
+   ESTRUCTURA Y CONTENIDO
+   ========================================== */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.badge-ds {
+  font-family: var(--font-title);
+  color: var(--crimson-blood);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.page-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--gold-bonfire);
+  letter-spacing: 4px;
+  margin: 10px 0;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* GRID Y TARJETAS */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gothic);
+  padding: 25px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-bonfire);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px var(--gold-glow);
+}
+
+.card-tag {
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  color: var(--ember-bright);
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.card-meta {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   TABLAS
+   ========================================== */
+.ds-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-gothic);
+  background: var(--bg-card);
+}
+
+.ds-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ds-table th {
+  background: rgba(0, 0, 0, 0.8);
+  font-family: var(--font-title);
+  color: var(--gold-bonfire);
+  padding: 15px 20px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  border-bottom: 2px solid var(--border-gothic);
+}
+
+.ds-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(212, 163, 89, 0.1);
+  font-size: 1.05rem;
+}
+
+.ds-table tr:hover {
+  background: rgba(212, 163, 89, 0.05);
+}
+
+.item-name {
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--border-gothic);
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  background: #040303;
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
